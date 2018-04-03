@@ -20,7 +20,7 @@ jobs:
 
       - run:
           name: Install!
-          command: npm install
+          command: yarn install
 
       - persist_to_workspace:
           root: ./
@@ -32,21 +32,21 @@ jobs:
             - node_modules
           key: v25-dependencies-{{ checksum "package.json" }}
 
-#      - run:
-#          name: Lint!
-#          command: npm run lint:tough
-#
-#      - run:
-#          name: Flow!
-#          command: npm run flow
-#
-#      - run:
-#          name: Jest
-#          command: npm run test:coverage:ci
-#
-#      - store_artifacts:
-#          path: ~/project/coverage/lcov-report
-#          destination: coverage
+      - run:
+          name: Lint!
+          command: yarn lint:tough
+
+      - run:
+          name: Flow!
+          command: yarn flow
+
+      - run:
+          name: Jest
+          command: yarn test:coverage:ci
+
+      - store_artifacts:
+          path: ~/project/coverage/lcov-report
+          destination: coverage
 
       #- run:
       #   name: Build!
