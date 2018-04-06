@@ -1,4 +1,4 @@
-defaults: &luna_defaults
+defaults: &project_defaults
   working_directory: ~/project
   docker:
     - image: circleci/node:8
@@ -6,11 +6,11 @@ defaults: &luna_defaults
 version: 2
 jobs:
   build:
-    <<: *luna_defaults
+    <<: *project_defaults
     steps:
       - checkout
 
-      - run: echo "CircleCI started --- luna"
+      - run: echo "CircleCI started"
 
       - restore_cache:
           keys:
@@ -20,7 +20,7 @@ jobs:
 
       - run:
           name: Install!
-          command: yarn install
+          command: npm install
 
       - persist_to_workspace:
           root: ./
@@ -34,20 +34,19 @@ jobs:
 
       - run:
           name: Lint!
-          command: yarn lint:tough
-
+          command: npm
       - run:
           name: Flow!
-          command: yarn flow
+          command: npm flow
 
       - run:
           name: Jest
-          command: yarn test:coverage:ci
+          command: npm test:coverage:ci
 
       - store_artifacts:
           path: ~/project/coverage/lcov-report
           destination: coverage
 
-      #- run:
-      #   name: Build!
-      #   command: npm run build
+      - run:
+         name: Build!
+         command: npm run build
