@@ -27,7 +27,7 @@
     "test:debug": "react-scripts --inspect-brk test --runInBand --env=jsdom",
     "test:coverage": "react-scripts test --coverage",
     "test:coverage:watch": "react-scripts test --watchAll --coverage",
-    "test:coverage:ci": "jest --coverage --maxWorkers 2",
+    "test:coverage:ci": "react-scripts test --coverage --maxWorkers 2",
     "lint": "eslint src",
     "lint:tough": "eslint src --max-warnings=0",
     "flow": "flow",
