@@ -34,14 +34,14 @@ jobs:
 
       - run:
           name: Lint!
-          command: npm
+          command: npm run lint:tough
       - run:
           name: Flow!
-          command: npm flow
+          command: npm run flow
 
       - run:
           name: Jest
-          command: npm test:coverage:ci
+          command: npm run test:coverage:ci
 
       - store_artifacts:
           path: ~/project/coverage/lcov-report
