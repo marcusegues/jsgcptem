@@ -28,6 +28,6 @@
     "react/jsx-filename-extension": "off",
     "flowtype/generic-spacing": "off",
     "react/prop-types": "off",
-    "no-underscore-dangle": "off",
+    "no-underscore-dangle": "off"
   }
 }
